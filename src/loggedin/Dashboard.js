@@ -1,7 +1,8 @@
 import React from "react";
 import jsCookie from "js-cookie";
 import "./dashboard.css"
-import ScheudleTile from "./ScheduleTile";
+import ScheduleTile from "./ScheduleTile";
+import FeederTile from "./FeederTile";
 
 export default class Dashboard extends React.Component {
 
@@ -28,16 +29,16 @@ export default class Dashboard extends React.Component {
                         <div className={"tile"} id={"feeder"}>
                             <h2 className={"tileHeading"}>Feeders</h2>
                             {/*Make this its own component that also loads feeders*/}
-                            <ul className={"tileMain"}></ul>
+                            <FeederTile></FeederTile>
                             <div className={"tileFooter"}>
                                 {/*Make this its own component that also adds feeders*/}
-                                <i className={"fa-solid fa-plus add active"}></i>
+                                <i className={"fa-solid fa-plus add active"} onClick={this.addSchedule}></i>
                             </div>
                         </div>
                         <div className={"tile"} id={"schedule"}>
                             <h2 className={"tileHeading"}>Schedules</h2>
                             {/*Make this its own component that also loads Schedules*/}
-                            <ScheudleTile/>
+                            <ScheduleTile/>
                             <div className={"tileFooter"}>
                                 {/* TODO: Make this its own component that also adds Schedules*/}
                                 <i className={"fa-solid fa-plus add active"}></i>
@@ -47,5 +48,10 @@ export default class Dashboard extends React.Component {
                 </main>
             </div>
         );
+    }
+
+    addSchedule(){
+
+
     }
 }

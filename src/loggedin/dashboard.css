@@ -57,3 +57,8 @@ li a{
     text-align: center;
     text-transform: capitalize;
 }
+
+.tile{
+
+    min-width: 330px;
+}
