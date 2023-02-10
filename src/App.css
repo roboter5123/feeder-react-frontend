@@ -1,38 +1,187 @@
-.App {
-  text-align: center;
+:root {
+
+    --primary: #415a77;
+    --secondary: #0d1b2a;
+    --tertiary: #778da9;
+    --text: #e0e1dd;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+
+    box-sizing: border-box;
+    color: var(--text);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button{
+
+    color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+
+    margin: 0;
+    height: 100vh;
+    background-color: var(--secondary);
 }
 
-.App-link {
-  color: #61dafb;
+img {
+
+    max-width: 100%;
+    max-height: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navigation {
+
+    position: fixed;
+    cursor: pointer;
+    background-color: var(--primary);
+    padding: 0.5rem;
+    width: 70px;
+    text-align: center;
+    margin: 16px 0;
+    text-decoration: none;
+}
+
+.topRight {
+
+    right: 10px;
+    top: 10px;
+}
+
+.topLeft {
+
+    left: 10px;
+    top: 10px;
+}
+
+.flex-box {
+
+    display: flex;
+}
+
+input, select {
+
+    color: black;
+    padding: 5px;
+}
+
+input[type="button"], input[type="submit"] {
+
+    cursor: pointer;
+}
+
+.screen {
+
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.screenHeading {
+
+    width: 100%;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5% 5%;
+}
+
+.entityName {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+i, svg{
+
+    visibility: hidden;
+    cursor: default;
+}
+
+.entityName i, svg{
+
+    display: none;
+}
+
+.entityName *{
+
+    padding: 5px;
+}
+
+.entityName input{
+
+    min-width: 270px;
+}
+
+.entityName h3{
+
+    margin: 0;
+}
+
+.screenMain {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.tile {
+
+    background-color: var(--primary);
+    min-width: 200px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.tileHeading {
+
+    padding: 5px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.tileMain {
+
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.tileFooter {
+
+    display: flex;
+    padding: 5px;
+}
+
+i.active , svg.active{
+
+    display: inline-block;
+    visibility: visible;
+    cursor: pointer;
+}
+
+.fullScreen{
+
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(25, 25, 25, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader{
+
+    height: 250px;
+    width: 250px;
 }
