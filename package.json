@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://feeder.roboter5123.com/api"
+  "proxy": "http://localhost:8080/api"
 }

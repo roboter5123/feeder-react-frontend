@@ -3,23 +3,36 @@ import jsCookie from "js-cookie";
 import "./dashboard.css"
 import ScheduleTile from "./ScheduleTile";
 import FeederTile from "./FeederTile";
+import PopUp from "./PopUp";
 
 export default class Dashboard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            add: {
+                schedule: false,
+                feeder: false
+            }
+        }
+    }
+
+    closePopUp(){
+        console.log(this)
+        this.setState({add:{schedule:false, feeder:false}})
     }
 
     render() {
 
         if (!jsCookie.get("access-token")) {
 
-            console.log("redirecting to login")
-            window.location.replace("/login");
+            window.location.href = "/login"
         }
+
         return (
             <div>
+                <PopUp closePopUp={this.closePopUp.bind(this)} type = {"schedule"} open ={this.state.add.schedule} />
+                <PopUp closePopUp={this.closePopUp.bind(this)} type = {"feeder"} open ={this.state.add.feeder}/>
                 <p id="logout" className="navigation topRight" onClick={this.props.rightButtonHandler}>Logout</p>
                 <main className={"screen"}>
                     <div className={"screenHeading"}>
@@ -31,17 +44,15 @@ export default class Dashboard extends React.Component {
                             {/*Make this its own component that also loads feeders*/}
                             <FeederTile></FeederTile>
                             <div className={"tileFooter"}>
-                                {/*Make this its own component that also adds feeders*/}
-                                <i className={"fa-solid fa-plus add active"} onClick={this.addSchedule}></i>
+                                <i className={"fa-solid fa-plus add active"} onClick={()=>this.setState({add:{feeder:true, schedule:false}})}></i>
                             </div>
                         </div>
                         <div className={"tile"} id={"schedule"}>
                             <h2 className={"tileHeading"}>Schedules</h2>
-                            {/*Make this its own component that also loads Schedules*/}
                             <ScheduleTile/>
                             <div className={"tileFooter"}>
                                 {/* TODO: Make this its own component that also adds Schedules*/}
-                                <i className={"fa-solid fa-plus add active"}></i>
+                                <i className={"fa-solid fa-plus add active"} onClick={()=>this.setState({add:{feeder:false, schedule:true}})}></i>
                             </div>
                         </div>
                     </div>
@@ -50,8 +61,6 @@ export default class Dashboard extends React.Component {
         );
     }
 
-    addSchedule(){
 
 
-    }
 }

@@ -23,7 +23,7 @@ export default class FeederTile extends React.Component {
                         <li key={feeder.uuid} id={feeder.uuid}>
                             <FontAwesomeIcon icon={faTrash} className={"delete active"}
                                              onClick={(e) => this.deleteFeeder(e.currentTarget.closest("li").getAttribute("id"))}/>
-                            <Link to={feeder.uuid} className="feederHeading feeder">
+                            <Link to={"/feeder/" + feeder.uuid} className="feederHeading feeder">
                                 {feeder.name ? feeder.name : feeder.uuid}
                             </Link>
                         </li>
@@ -55,7 +55,7 @@ export default class FeederTile extends React.Component {
         fetch("feeder?" + new URLSearchParams({"uuid": feederName}), {
             method: 'DELETE',
             credentials: "include",
-        }).then((response) => {
+        }).then(() => {
 
             window.location.reload()
         })

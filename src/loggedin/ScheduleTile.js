@@ -23,7 +23,7 @@ export default class ScheduleTile extends React.Component {
                         <li key={schedule.name} id={schedule.name}>
                             <FontAwesomeIcon icon={faTrash} className={"delete active"}
                                              onClick={(e) => this.deleteSchedule(e.currentTarget.closest("li").getAttribute("id"))}/>
-                            <Link to={schedule.name} className="scheduleHeading schedule">
+                            <Link to={"schedule/"+schedule.name} className="scheduleHeading schedule">
                                 {schedule.name}
                             </Link>
                         </li>
@@ -55,7 +55,7 @@ export default class ScheduleTile extends React.Component {
         fetch("schedule?" + new URLSearchParams({"name": scheduleName}), {
             method: 'DELETE',
             credentials: "include",
-        }).then((response) => {
+        }).then(() => {
 
             window.location.reload()
         })

@@ -62,3 +62,13 @@ li a{
 
     min-width: 330px;
 }
+
+.popUp label{
+
+    width: 50%;
+}
+
+#popUpSubmit{
+
+    width: unset;
+}
